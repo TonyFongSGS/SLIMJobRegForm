@@ -1,0 +1,2241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://ilayer.sgs.com/cclas/client/outbound/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://ilayer.sgs.com/cclas/clientresponse/outbound/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="http://ilayer.sgs.com/slim/inout/" xmlns:s1="http://ilayer.sgs.com/cclas/IsJobRegistered/outbound/wsdl/" xmlns:s2="http://ilayer.sgs.com/cclas/JOB/outbound/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="http://ilayer.sgs.com/cclas/client/inbound/wsdl/" targetNamespace="http://ilayer.sgs.com/cclas/client/outbound/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/cclas/client/outbound/wsdl/">
+      <s:import namespace="http://ilayer.sgs.com/cclas/client/inbound/wsdl/" />
+      <s:element name="InitialiseSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLabCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSystem" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitialiseSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitialiseSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMSCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="JobDataFromLIMSCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JobDataFromLIMSCountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMSCountZip">
+        <s:complexType />
+      </s:element>
+      <s:element name="JobDataFromLIMSCountZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JobDataFromLIMSCountZipResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClientDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sClient" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClientDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sProduct" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductDataFromLIMSSince">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sProduct" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lDays" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductDataFromLIMSSinceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductDataFromLIMSSinceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLogType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDateFrom" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDateTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sQlabJob" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcedureDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sProcedure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sClient" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeNonClientSpecific" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcedureDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcedureDataFromLIMSSince">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sProcedure" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sClient" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bIncludeNonClientSpecific" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lDays" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcedureDataFromLIMSSinceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcedureDataFromLIMSSinceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KillSessionObjects">
+        <s:complexType />
+      </s:element>
+      <s:element name="KillSessionObjectsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteXMLFileOnGetJobBiofieldDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bStat" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteXMLFileOnGetJobBiofieldDataFromLIMSResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="MimeXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bStat" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MimeXMLResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RegisterImmediate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bStat" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterImmediateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestartServer">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestartServerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="JobBiofieldDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobBiofieldDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobBiofieldDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SampleBiofieldDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SampleBiofieldDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SampleBiofieldDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BiofieldDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBF" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BiofieldDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BiofieldDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lIndex" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMSZip">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lIndex" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataFromLIMSZipResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobDataFromLIMSZipResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJobDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lIndex" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteJobDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteJobDataFromLIMSResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataToLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobDataToLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobDataToLIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobSpecialDataToLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXMLHdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobSpecialDataToLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobSpecialDataToLIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcquireJobDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLabCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sProJob" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AcquireJobDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AcquireJobDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobSpecialDataToLIMSDirect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLabCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXMLHdr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobSpecialDataToLIMSDirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobSpecialDataToLIMSDirectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PriceDataToLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PriceDataToLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PriceDataToLIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateJobDataToLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateJobDataToLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateJobDataToLIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcregGroupDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcregGroupDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcregGroupDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SchemeDataFromLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSchemeAnalyteFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SchemeDataFromLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SchemeDataFromLIMSResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsJobRegisteredRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sLabCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSystem" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sJob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sField" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SchemeDataFromLIMSSince">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sSchemeAnalyteFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAddWhere" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lDays" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SchemeDataFromLIMSSinceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SchemeDataFromLIMSSinceResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddClientToLIMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddClientToLIMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddClientToLIMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddClientToLIMSDirect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddClientToLIMSDirectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddClientToLIMSDirectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastXMLDocumentAsString">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastXMLDocumentAsStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastXMLDocumentAsStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StoreBossCustomerRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s3:ClientsList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobRegister">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JOB">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="JOBCLIENTS" type="s2:JOBCLIENTS" />
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="JOBBIOFIELD" type="s2:SAMPLEBIOFIELD" />
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="SAMPLE" type="s2:SAMPLE" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ATTACHMENT" type="s1:ArrayOfFILEATTACHMENT" />
+                  <s:element minOccurs="0" maxOccurs="1" name="INVATTACHMENT" type="s1:ArrayOfFILEATTACHMENT" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SystemName" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="InstanceName" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="LABCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="USERFIELD13" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="USERFIELD19" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="USERFIELD20" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="AUTOJOBSEQUENCE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PROJ_CODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRO_JOB" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="QUO_CODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COSTCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="NOSAMS" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PROCSTATUS" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PROCSTATUS_TEXT" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ORDERNO" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CLI_CODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CLI_NAME" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CONT_CODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="REGISTERED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="REGISTEREDBY" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="RECEIVED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="REQUIRED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="STARTED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="APPROVED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="FINALISED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COMPLETED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="FIRSTREPORTED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="LASTREPORTED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="INVOICED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRIORITY" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="REPORTTPL" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="TAXFLAG" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="NOTESFILE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="NOTES1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="NOTES2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="NOTES3" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRO_PROJ" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ACTIVATED" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CINV_LABCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CLI_INV" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CREP_LABCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CLI_REP" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COMMENTS1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COMMENTS2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COMMENTS3" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRINTCONCLUSION" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="TESTCOMMENTS" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="JOBCOMMENTS" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="FAXEMAILOVERRIDE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="AMENDNO" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OWNERCODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="COMMENTS4" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="PRINTINVSAM" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="JOBSTATUS" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ISREPJOB" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="LANG1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="LANG2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS2" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS3" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS4" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_BUYER" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_CUSTOMERREF" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_DESTINATIONCTRY" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_EXECCONTACT" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_MANUFACTURER" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_ORIGINCTRY" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTDESCRIPTION" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTIONSTAGE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTNAME" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_SERVICELEVEL" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_SGSLOCATION" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="OM_SUPPLIER" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="LANGUAGE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ACCREDTYPE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SERVICETYPE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE1" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="QLABJOB" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="AUTOINVGROUP" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="ACCNT_CODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="XMLMODE" type="s:string" />
+                  <s:element minOccurs="0" maxOccurs="1" name="CCLAS_LABCODE" type="s:string" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobRegisterXMLString">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sURL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/cclas/IsJobRegistered/outbound/wsdl/">
+      <s:import namespace="http://ilayer.sgs.com/cclas/JOB/outbound/wsdl/" />
+      <s:element name="IsJobRegisteredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsJobRegisteredResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="unbounded" name="JOB">
+                    <s:complexType>
+                      <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="unbounded" name="JOBCLIENTS" type="s2:JOBCLIENTS" />
+                        <s:element minOccurs="0" maxOccurs="unbounded" name="JOBBIOFIELD" type="s2:SAMPLEBIOFIELD" />
+                        <s:element minOccurs="0" maxOccurs="unbounded" name="SAMPLE" type="s2:SAMPLE" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ATTACHMENT" type="s1:ArrayOfFILEATTACHMENT" />
+                        <s:element minOccurs="0" maxOccurs="1" name="INVATTACHMENT" type="s1:ArrayOfFILEATTACHMENT" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SystemName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="InstanceName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LABCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="USERFIELD13" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="USERFIELD19" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="USERFIELD20" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="AUTOJOBSEQUENCE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PROJ_CODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRO_JOB" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="QUO_CODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COSTCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="NOSAMS" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PROCSTATUS" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PROCSTATUS_TEXT" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ORDERNO" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CLI_CODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CLI_NAME" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CONT_CODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="REGISTERED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="REGISTEREDBY" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="RECEIVED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="REQUIRED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="STARTED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="APPROVED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FINALISED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COMPLETED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FIRSTREPORTED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LASTREPORTED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="INVOICED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRIORITY" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="REPORTTPL" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TAXFLAG" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="NOTESFILE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="NOTES1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="NOTES2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="NOTES3" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRO_PROJ" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ACTIVATED" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CINV_LABCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CLI_INV" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CREP_LABCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CLI_REP" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COMMENTS1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COMMENTS2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COMMENTS3" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRINTCONCLUSION" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TESTCOMMENTS" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="JOBCOMMENTS" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="FAXEMAILOVERRIDE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="AMENDNO" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OWNERCODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="COMMENTS4" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="PRINTINVSAM" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="JOBSTATUS" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ISREPJOB" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LANG1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LANG2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS2" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS3" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS4" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_BUYER" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_CUSTOMERREF" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_DESTINATIONCTRY" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_EXECCONTACT" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_MANUFACTURER" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_ORIGINCTRY" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTDESCRIPTION" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTIONSTAGE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_PRODUCTNAME" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_SERVICELEVEL" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_SGSLOCATION" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="OM_SUPPLIER" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="LANGUAGE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ACCREDTYPE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SERVICETYPE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNATORY1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNTITLE1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="SIGNCODE1" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="QLABJOB" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="AUTOINVGROUP" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ACCNT_CODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="XMLMODE" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CCLAS_LABCODE" type="s:string" />
+                      </s:sequence>
+                    </s:complexType>
+                  </s:element>
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFILEATTACHMENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FILEATTACHMENT" nillable="true" type="s1:FILEATTACHMENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FILEATTACHMENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FILENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/cclas/JOB/outbound/wsdl/">
+      <s:complexType name="JOBCLIENTS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CLITYPE">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="REP" />
+                <s:enumeration value="INV" />
+                <s:enumeration value="DAT" />
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="CLISEQUENCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLI_LABCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLI_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONT_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TPLFILE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AMOUNT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHEMES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLI_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONT_NAME" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAMPLEBIOFIELD" mixed="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BIOSEQ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAMPLEIDENT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIOFIELD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BIOVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UBIOVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISACTIVE" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPSEQ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NL_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IT_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FR_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ES_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EN_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DE_FIELDNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN_FIELDNAME" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SAMPLE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SAMPLEBIOFIELD" type="s2:SAMPLEBIOFIELD" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SUBSAMPLE" type="s2:SUBSAMPLE" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SCHEME" type="s2:SCHEME" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAMPLETYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTERNALIDENT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAMPLEIDENT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRODUCTCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STARTED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPLETED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REQUIRED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAMPLED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRIORITY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RECEIVED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPORTACTIVE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICEACTIVE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMMENTS1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMMENTS2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRINTLIMITS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRINTUNCERT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRINTACCRED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAMPLEDBY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTRA1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L2_COMMENTS2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="L2_EXTRA1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOCTN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRINTDL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONTAINER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LINKGROUP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRIALNUMBER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAM_REMARKS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SAM_DESCRIPTION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION_6" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SUBSAMPLE" mixed="true">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SUBSAMPLENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOTES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SCHEME">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ANALYTE" type="s2:ANALYTE" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCH_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHVERSION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHSEQUENCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROCEDURECODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHEMETYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHEMENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHORTNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="METHODCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WKLISTSTATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STARTED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPLETED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD9" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERFIELD10" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN_METHODCODE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ANALYTE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SUBANALYTE" type="s2:SUBANALYTE" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANALYTECODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANALYTENAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NUMERICVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ROUNDEDVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FINALVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FORMATTEDVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERNOTES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPDETLIMIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANALYTESTATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPUNITCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UNITNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QCMINVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QCMAXVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QCEXPECTEDVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPORTACTIVE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QCACTIVE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCHSEQUENCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANASEQUENCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STARTED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COMPLETED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN_DESCRIPTION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CN_REPUNIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPUNIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERSTATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UNIT_USERFIELD5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LVL1UPPERLIMIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SA_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHOW_ND" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PJSA_ANAGRP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PJSA_ANAEXT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SA_ANAGRP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SA_ANAHDR" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SUBANALYTE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTENO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTECODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTEREP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTEPROMPT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTEADDPROMPT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTEVALUE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SUBANALYTEADDVALUE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/cclas/client/inbound/wsdl/">
+      <s:element name="ClientsList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SystemName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InstanceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Clients" type="s3:ArrayOfClient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Client" type="s3:Client" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Client">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustActive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigitalSignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accnt_Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteActive" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField13" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField14" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField19" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField20" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField11" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField12" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField15" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField16" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField17" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField18" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cli_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField8" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField9" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField10" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceTerms" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CliCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Discount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientContacts" type="s3:ArrayOfClientContact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClientContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientContact" nillable="true" type="s3:ClientContact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserField20" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cont_Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cont_Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Postcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField17" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField18" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField19" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserField16" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/cclas/clientresponse/outbound/wsdl/">
+      <s:element name="StoreBossCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StoreBossCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element minOccurs="0" maxOccurs="1" name="Clients" type="s4:ArrayOfClientResponse" />
+                  <s:element minOccurs="0" maxOccurs="1" name="BossCustomerStatus" type="s:string" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfClientResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientResponse" type="s4:ClientResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCLASClientLabCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CCLASClientCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientContacts" type="s4:ArrayOfClientContactResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClientContactResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ClientContactResponse" nillable="true" type="s4:ClientContactResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ClientContactResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ContID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CclasContactCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ilayer.sgs.com/slim/inout/">
+      <s:import />
+      <s:element name="JobRegisterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="JobRegisterResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobRegisterXMLStringResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobRegisterXMLStringResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JobReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobReportResult" type="s5:JobReportResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JobReportResponse">
+        <s:attribute name="JobReportResult" type="s:string" />
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified">
+      <s:element name="JobRegisterResult">
+        <s:complexType>
+          <s:attribute name="JobRegisterResult" type="s:string" />
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InitialiseSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:InitialiseSession" />
+  </wsdl:message>
+  <wsdl:message name="InitialiseSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:InitialiseSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSCountSoapIn">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSCount" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSCountSoapOut">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSCountZipSoapIn">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSCountZip" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSCountZipSoapOut">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSCountZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClientDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ClientDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="ClientDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ClientDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="ProductDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductDataFromLIMSSinceSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductDataFromLIMSSince" />
+  </wsdl:message>
+  <wsdl:message name="ProductDataFromLIMSSinceSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductDataFromLIMSSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:LogDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="LogDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:LogDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcedureDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcedureDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="ProcedureDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcedureDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcedureDataFromLIMSSinceSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcedureDataFromLIMSSince" />
+  </wsdl:message>
+  <wsdl:message name="ProcedureDataFromLIMSSinceSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcedureDataFromLIMSSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="KillSessionObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:KillSessionObjects" />
+  </wsdl:message>
+  <wsdl:message name="KillSessionObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:KillSessionObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteXMLFileOnGetJobBiofieldDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteXMLFileOnGetJobBiofieldDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="DeleteXMLFileOnGetJobBiofieldDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteXMLFileOnGetJobBiofieldDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="MimeXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:MimeXML" />
+  </wsdl:message>
+  <wsdl:message name="MimeXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:MimeXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterImmediateSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterImmediate" />
+  </wsdl:message>
+  <wsdl:message name="RegisterImmediateSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterImmediateResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestartServerSoapIn">
+    <wsdl:part name="parameters" element="tns:RestartServer" />
+  </wsdl:message>
+  <wsdl:message name="RestartServerSoapOut">
+    <wsdl:part name="parameters" element="tns:RestartServerResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobBiofieldDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:JobBiofieldDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="JobBiofieldDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:JobBiofieldDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SampleBiofieldDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SampleBiofieldDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="SampleBiofieldDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SampleBiofieldDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="BiofieldDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:BiofieldDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="BiofieldDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:BiofieldDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:UserDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="UserDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:UserDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSZipSoapIn">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSZip" />
+  </wsdl:message>
+  <wsdl:message name="JobDataFromLIMSZipSoapOut">
+    <wsdl:part name="parameters" element="tns:JobDataFromLIMSZipResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJobDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteJobDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="DeleteJobDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteJobDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobDataToLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:JobDataToLIMS" />
+  </wsdl:message>
+  <wsdl:message name="JobDataToLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:JobDataToLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobSpecialDataToLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:JobSpecialDataToLIMS" />
+  </wsdl:message>
+  <wsdl:message name="JobSpecialDataToLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:JobSpecialDataToLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="AcquireJobDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:AcquireJobDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="AcquireJobDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:AcquireJobDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobSpecialDataToLIMSDirectSoapIn">
+    <wsdl:part name="parameters" element="tns:JobSpecialDataToLIMSDirect" />
+  </wsdl:message>
+  <wsdl:message name="JobSpecialDataToLIMSDirectSoapOut">
+    <wsdl:part name="parameters" element="tns:JobSpecialDataToLIMSDirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="PriceDataToLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:PriceDataToLIMS" />
+  </wsdl:message>
+  <wsdl:message name="PriceDataToLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:PriceDataToLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateJobDataToLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateJobDataToLIMS" />
+  </wsdl:message>
+  <wsdl:message name="ValidateJobDataToLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateJobDataToLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcregGroupDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcregGroupDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="ProcregGroupDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcregGroupDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SchemeDataFromLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SchemeDataFromLIMS" />
+  </wsdl:message>
+  <wsdl:message name="SchemeDataFromLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SchemeDataFromLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsJobRegisteredSoapIn">
+    <wsdl:part name="parameters" element="tns:IsJobRegisteredRequest" />
+  </wsdl:message>
+  <wsdl:message name="IsJobRegisteredSoapOut">
+    <wsdl:part name="parameters" element="s1:IsJobRegisteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="SchemeDataFromLIMSSinceSoapIn">
+    <wsdl:part name="parameters" element="tns:SchemeDataFromLIMSSince" />
+  </wsdl:message>
+  <wsdl:message name="SchemeDataFromLIMSSinceSoapOut">
+    <wsdl:part name="parameters" element="tns:SchemeDataFromLIMSSinceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddClientToLIMSSoapIn">
+    <wsdl:part name="parameters" element="tns:AddClientToLIMS" />
+  </wsdl:message>
+  <wsdl:message name="AddClientToLIMSSoapOut">
+    <wsdl:part name="parameters" element="tns:AddClientToLIMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddClientToLIMSDirectSoapIn">
+    <wsdl:part name="parameters" element="tns:AddClientToLIMSDirect" />
+  </wsdl:message>
+  <wsdl:message name="AddClientToLIMSDirectSoapOut">
+    <wsdl:part name="parameters" element="tns:AddClientToLIMSDirectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastXMLDocumentAsStringSoapIn">
+    <wsdl:part name="parameters" element="tns:LastXMLDocumentAsString" />
+  </wsdl:message>
+  <wsdl:message name="LastXMLDocumentAsStringSoapOut">
+    <wsdl:part name="parameters" element="tns:LastXMLDocumentAsStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="StoreBossCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:StoreBossCustomerRequest" />
+  </wsdl:message>
+  <wsdl:message name="StoreBossCustomerSoapOut">
+    <wsdl:part name="parameters" element="s4:StoreBossCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobRegisterSoapIn">
+    <wsdl:part name="parameters" element="tns:JobRegister" />
+  </wsdl:message>
+  <wsdl:message name="JobRegisterSoapOut">
+    <wsdl:part name="parameters" element="s5:JobRegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobRegisterXMLStringSoapIn">
+    <wsdl:part name="parameters" element="tns:JobRegisterXMLString" />
+  </wsdl:message>
+  <wsdl:message name="JobRegisterXMLStringSoapOut">
+    <wsdl:part name="parameters" element="s5:JobRegisterXMLStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="JobReportSoapIn">
+    <wsdl:part name="parameters" element="tns:JobReport" />
+  </wsdl:message>
+  <wsdl:message name="JobReportSoapOut">
+    <wsdl:part name="parameters" element="s5:JobReportResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CCLASXMLServiceSoap">
+    <wsdl:operation name="InitialiseSession">
+      <wsdl:input message="tns:InitialiseSessionSoapIn" />
+      <wsdl:output message="tns:InitialiseSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCount">
+      <wsdl:input message="tns:JobDataFromLIMSCountSoapIn" />
+      <wsdl:output message="tns:JobDataFromLIMSCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCountZip">
+      <wsdl:input message="tns:JobDataFromLIMSCountZipSoapIn" />
+      <wsdl:output message="tns:JobDataFromLIMSCountZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientDataFromLIMS">
+      <wsdl:input message="tns:ClientDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:ClientDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMS">
+      <wsdl:input message="tns:ProductDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:ProductDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMSSince">
+      <wsdl:input message="tns:ProductDataFromLIMSSinceSoapIn" />
+      <wsdl:output message="tns:ProductDataFromLIMSSinceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogDataFromLIMS">
+      <wsdl:input message="tns:LogDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:LogDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMS">
+      <wsdl:input message="tns:ProcedureDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:ProcedureDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMSSince">
+      <wsdl:input message="tns:ProcedureDataFromLIMSSinceSoapIn" />
+      <wsdl:output message="tns:ProcedureDataFromLIMSSinceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KillSessionObjects">
+      <wsdl:input message="tns:KillSessionObjectsSoapIn" />
+      <wsdl:output message="tns:KillSessionObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteXMLFileOnGetJobBiofieldDataFromLIMS">
+      <wsdl:input message="tns:DeleteXMLFileOnGetJobBiofieldDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:DeleteXMLFileOnGetJobBiofieldDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MimeXML">
+      <wsdl:input message="tns:MimeXMLSoapIn" />
+      <wsdl:output message="tns:MimeXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterImmediate">
+      <wsdl:input message="tns:RegisterImmediateSoapIn" />
+      <wsdl:output message="tns:RegisterImmediateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestartServer">
+      <wsdl:input message="tns:RestartServerSoapIn" />
+      <wsdl:output message="tns:RestartServerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobBiofieldDataFromLIMS">
+      <wsdl:input message="tns:JobBiofieldDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:JobBiofieldDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SampleBiofieldDataFromLIMS">
+      <wsdl:input message="tns:SampleBiofieldDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:SampleBiofieldDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BiofieldDataFromLIMS">
+      <wsdl:input message="tns:BiofieldDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:BiofieldDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDataFromLIMS">
+      <wsdl:input message="tns:UserDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:UserDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMS">
+      <wsdl:input message="tns:JobDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:JobDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSZip">
+      <wsdl:input message="tns:JobDataFromLIMSZipSoapIn" />
+      <wsdl:output message="tns:JobDataFromLIMSZipSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobDataFromLIMS">
+      <wsdl:input message="tns:DeleteJobDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:DeleteJobDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobDataToLIMS">
+      <wsdl:input message="tns:JobDataToLIMSSoapIn" />
+      <wsdl:output message="tns:JobDataToLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMS">
+      <wsdl:input message="tns:JobSpecialDataToLIMSSoapIn" />
+      <wsdl:output message="tns:JobSpecialDataToLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AcquireJobDataFromLIMS">
+      <wsdl:input message="tns:AcquireJobDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:AcquireJobDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMSDirect">
+      <wsdl:input message="tns:JobSpecialDataToLIMSDirectSoapIn" />
+      <wsdl:output message="tns:JobSpecialDataToLIMSDirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PriceDataToLIMS">
+      <wsdl:input message="tns:PriceDataToLIMSSoapIn" />
+      <wsdl:output message="tns:PriceDataToLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJobDataToLIMS">
+      <wsdl:input message="tns:ValidateJobDataToLIMSSoapIn" />
+      <wsdl:output message="tns:ValidateJobDataToLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcregGroupDataFromLIMS">
+      <wsdl:input message="tns:ProcregGroupDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:ProcregGroupDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMS">
+      <wsdl:input message="tns:SchemeDataFromLIMSSoapIn" />
+      <wsdl:output message="tns:SchemeDataFromLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsJobRegistered">
+      <wsdl:input message="tns:IsJobRegisteredSoapIn" />
+      <wsdl:output message="tns:IsJobRegisteredSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMSSince">
+      <wsdl:input message="tns:SchemeDataFromLIMSSinceSoapIn" />
+      <wsdl:output message="tns:SchemeDataFromLIMSSinceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMS">
+      <wsdl:input message="tns:AddClientToLIMSSoapIn" />
+      <wsdl:output message="tns:AddClientToLIMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMSDirect">
+      <wsdl:input message="tns:AddClientToLIMSDirectSoapIn" />
+      <wsdl:output message="tns:AddClientToLIMSDirectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastXMLDocumentAsString">
+      <wsdl:input message="tns:LastXMLDocumentAsStringSoapIn" />
+      <wsdl:output message="tns:LastXMLDocumentAsStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StoreBossCustomer">
+      <wsdl:input message="tns:StoreBossCustomerSoapIn" />
+      <wsdl:output message="tns:StoreBossCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobRegister">
+      <wsdl:input message="tns:JobRegisterSoapIn" />
+      <wsdl:output message="tns:JobRegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobRegisterXMLString">
+      <wsdl:input message="tns:JobRegisterXMLStringSoapIn" />
+      <wsdl:output message="tns:JobRegisterXMLStringSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JobReport">
+      <wsdl:input message="tns:JobReportSoapIn" />
+      <wsdl:output message="tns:JobReportSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CCLASXMLServiceSoap" type="tns:CCLASXMLServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InitialiseSession">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/InitialiseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCount">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCountZip">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSCountZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ClientDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProductDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMSSince">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProductDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/LogDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcedureDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMSSince">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcedureDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillSessionObjects">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/KillSessionObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteXMLFileOnGetJobBiofieldDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/DeleteXMLFileOnGetJobBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MimeXML">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/MimeXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterImmediate">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/RegisterImmediate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartServer">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/RestartServer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobBiofieldDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SampleBiofieldDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SampleBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BiofieldDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/BiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/UserDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSZip">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSZip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/DeleteJobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataToLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobSpecialDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireJobDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AcquireJobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMSDirect">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobSpecialDataToLIMSDirect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PriceDataToLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/PriceDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJobDataToLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ValidateJobDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcregGroupDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcregGroupDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SchemeDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsJobRegistered">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/IsJobRegistered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMSSince">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SchemeDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMS">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AddClientToLIMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMSDirect">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AddClientToLIMSDirect" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastXMLDocumentAsString">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/LastXMLDocumentAsString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreBossCustomer">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/StoreBossCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobRegister">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobRegister" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobRegisterXMLString">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobRegisterXMLString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobReport">
+      <soap:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CCLASXMLServiceSoap12" type="tns:CCLASXMLServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InitialiseSession">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/InitialiseSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCount">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSCountZip">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSCountZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClientDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ClientDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProductDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductDataFromLIMSSince">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProductDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/LogDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcedureDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcedureDataFromLIMSSince">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcedureDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KillSessionObjects">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/KillSessionObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteXMLFileOnGetJobBiofieldDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/DeleteXMLFileOnGetJobBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MimeXML">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/MimeXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterImmediate">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/RegisterImmediate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestartServer">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/RestartServer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobBiofieldDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SampleBiofieldDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SampleBiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BiofieldDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/BiofieldDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/UserDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataFromLIMSZip">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataFromLIMSZip" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/DeleteJobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobDataToLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobSpecialDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcquireJobDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AcquireJobDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobSpecialDataToLIMSDirect">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobSpecialDataToLIMSDirect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PriceDataToLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/PriceDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateJobDataToLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ValidateJobDataToLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcregGroupDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/ProcregGroupDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SchemeDataFromLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsJobRegistered">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/IsJobRegistered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SchemeDataFromLIMSSince">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/SchemeDataFromLIMSSince" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMS">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AddClientToLIMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddClientToLIMSDirect">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/AddClientToLIMSDirect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastXMLDocumentAsString">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/LastXMLDocumentAsString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StoreBossCustomer">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/StoreBossCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobRegister">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobRegisterXMLString">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobRegisterXMLString" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JobReport">
+      <soap12:operation soapAction="http://ilayer.sgs.com/cclas/client/outbound/wsdl/JobReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CCLASXMLService">
+    <wsdl:port name="CCLASXMLServiceSoap" binding="tns:CCLASXMLServiceSoap">
+      <soap:address location="http://localhost/SLIM/ccxml01/CCXML01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CCLASXMLServiceSoap12" binding="tns:CCLASXMLServiceSoap12">
+      <soap12:address location="http://localhost/SLIM/ccxml01/CCXML01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
